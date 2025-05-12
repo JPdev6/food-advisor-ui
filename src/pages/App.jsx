@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [token, setTokenState] = useState(null);
+  const API = "https://your-backend.onrender.com";
 
   // Load token from localStorage on startup
   useEffect(() => {

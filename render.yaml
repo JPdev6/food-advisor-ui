@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: food-advisor-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: food-advisor-db
+          property: connectionString
+      - key: JWT_SECRET
+        value: your_jwt_secret_here
+
+databases:
+  - name: food-advisor-db
