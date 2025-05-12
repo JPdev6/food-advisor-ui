@@ -5,7 +5,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [token, setToken] = useState(null);
-  const API = "https://your-backend.onrender.com";
+  const API = "https://food-advisor-bty0.onrender.com";
 
   const handleLogin = async (e) => {
     e.preventDefault();

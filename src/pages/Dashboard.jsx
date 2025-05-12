@@ -5,7 +5,7 @@ export default function Dashboard({ token }) {
   const [entries, setEntries] = useState([]);
   const [diceMeal, setDiceMeal] = useState(null);
   const [message, setMessage] = useState("");
-  const API = "https://your-backend.onrender.com";
+  const API = "https://food-advisor-bty0.onrender.com";
 
   const fetchEntries = async () => {
     const res = await fetch("http://localhost:8000/food", {

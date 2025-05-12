@@ -5,7 +5,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const API = "https://your-backend.onrender.com";
+  const API = "https://food-advisor-bty0.onrender.com";
 
   const handleRegister = async (e) => {
     e.preventDefault();

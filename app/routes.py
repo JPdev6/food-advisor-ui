@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends
-from tortoise.contrib.fastapi import HTTPNotFoundError
+from fastapi import HTTPException, status
 from app.models import User, FoodEntry
 from app.auth import hash_password, verify_password, create_token
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -37,9 +37,16 @@ async def add_food(meal: str, user=Depends(get_current_user)):
     await FoodEntry.create(user=user, date=date.today(), meal=meal)
     return {"message": "Logged"}
 
-@router.get("/food")
-async def get_food(user=Depends(get_current_user)):
-    return await FoodEntry.filter(user=user).all()
+@router.get("/food/{food_id}")
+async def get_food_by_id(food_id: int):
+    food = await FoodEntry.get(id=food_id).first()
+    if food is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Food entry not found"
+        )
+    return food
+
 
 @router.get("/dice")
 async def roll_dice():
