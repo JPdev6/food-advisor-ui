@@ -1,5 +1,39 @@
+# Node modules
 node_modules/
 dist/
+.cache/
 .vite/
+
+# Build outputs
+*.log
+*.tsbuildinfo
+*.local
+
+# Vite / Tailwind
 .env
-.venv
+.env.local
+.env.*.local
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python backend
+__pycache__/
+*.pyc
+.venv/
+backend/.mypy_cache/
+backend/.pytest_cache/
+
+# Test coverage
+coverage/
+htmlcov/
+
+# Generated files
+*.sqlite3
+*.db

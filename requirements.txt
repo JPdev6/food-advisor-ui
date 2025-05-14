@@ -1,8 +1,0 @@
-fastapi
-uvicorn[standard]
-tortoise-orm
-asyncpg
-python-jose[cryptography]
-passlib[bcrypt]
-python-dotenv
-python-multipart
