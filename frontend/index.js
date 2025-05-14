@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'; // Tailwind CSS
 import App from './App';
+import "./styles/index.css"; // Make sure it exists and includes Tailwind's base
+
 
 ReactDOM.render(
   <React.StrictMode>
