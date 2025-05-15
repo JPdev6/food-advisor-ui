@@ -3,7 +3,7 @@ services:
     name: food-advisor-backend
     env: python
     startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
-    buildCommand: ""
+    buildCommand:  pip install -r backend/requirements.txt
     plan: free
     envVars:
       - key: DATABASE_URL
