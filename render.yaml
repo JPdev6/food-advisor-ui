@@ -2,24 +2,24 @@ services:
   - type: web
     name: food-advisor-backend
     env: python
-    buildCommand: ""
     startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
+    buildCommand: ""
     plan: free
     envVars:
       - key: DATABASE_URL
-        value: your_database_url
-      - key: SECRET_KEY
-        value: your_secret_key
+        value:  ${DATABASE_URL}
+      - key: JWT_SECRET
+        value: ${JWT_SECRET}
     autoDeploy: true
 
   - type: web
     name: food-advisor-frontend
     env: static
-    staticPublishPath: dist
     buildCommand: npm run build
+    staticPublishPath: dist
     rootDir: frontend
     plan: free
     envVars:
       - key: VITE_API_URL
-        value: https://curious-begonia-168024.netlify.app/
+        value: ${VITE_API_URL}
     autoDeploy: true
