@@ -10,7 +10,7 @@ dist/
 *.local
 
 # Vite / Tailwind
-.env
+frontend/.env
 .env.local
 .env.*.local
 

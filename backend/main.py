@@ -4,7 +4,9 @@ from backend.suggest import router
 from backend.db import engine
 from backend.models import Base
 from fastapi.staticfiles import StaticFiles
+from dotenv import load_dotenv
 
+load_dotenv()
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)

@@ -1,18 +1,25 @@
 services:
   - type: web
-  - name: food-advisor-api
-  - env: python
-  - plan: free
-  - rootDir: backend
-  - buildCommand: pip install -r requirements.txt
-  - startCommand: uvicorn main:food-advisor-ui --host 0.0.0.0 --port 10000
+    name: food-advisor-backend
+    env: python
+    buildCommand: ""
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
+    plan: free
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: food-advisor-db
-          property: connectionString
-      - key: JWT_SECRET
-        value: your_jwt_secret_here
+        value: your_database_url
+      - key: SECRET_KEY
+        value: your_secret_key
+    autoDeploy: true
 
-databases:
-  - name: food-advisor-db
+  - type: web
+    name: food-advisor-frontend
+    env: static
+    staticPublishPath: dist
+    buildCommand: npm run build
+    rootDir: frontend
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: https://curious-begonia-168024.netlify.app/
+    autoDeploy: true
