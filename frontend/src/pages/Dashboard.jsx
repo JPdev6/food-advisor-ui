@@ -48,12 +48,12 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-green-50 to-green-100 px-4 py-10 flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-to-br from-white via-green-50 to-green-100 flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-xl bg-white shadow-xl rounded-2xl p-6 space-y-6"
+        className="w-full max-w-xl xl:max-w-2xl bg-white shadow-xl rounded-2xl p-6 space-y-6 sm:mx-4"
       >
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -78,7 +78,7 @@ export default function Dashboard() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-green-100 rounded-xl p-5 text-center shadow-md"
+            className="bg-green-100 border border-green-300 rounded-xl p-5 text-center shadow-md"
           >
             <h2 className="text-xl font-semibold text-green-800">Today's Suggestion:</h2>
             <p className="text-lg mt-2 font-medium">{suggestion.meal}</p>
@@ -99,15 +99,17 @@ export default function Dashboard() {
           <ul className="bg-gray-100 mt-2 p-4 rounded-lg divide-y divide-gray-200 max-h-64 overflow-y-auto">
             {Array.isArray(meals) &&
               meals
-                  .filter((m) => m.meal.toLowerCase().includes(search.toLowerCase()))
-                  .map((m, i) => (
-                    <li key={i} className="py-2 flex justify-between items-center">
-                      <span className="text-gray-800">🍽️ {m.meal}</span>
-                      <span className="text-xs text-gray-500">
-                        {new Date(m.created_at).toLocaleDateString()}
-                      </span>
-                    </li>
-              ))}
+                .filter((m) =>
+                  m.meal.toLowerCase().includes(search.toLowerCase())
+                )
+                .map((m, i) => (
+                  <li key={i} className="py-2 flex justify-between items-center">
+                    <span className="text-gray-800">🍽️ {m.meal}</span>
+                    <span className="text-xs text-gray-500">
+                      {new Date(m.created_at).toLocaleDateString()}
+                    </span>
+                  </li>
+                ))}
           </ul>
         </div>
       </motion.div>

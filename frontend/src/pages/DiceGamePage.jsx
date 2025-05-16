@@ -33,19 +33,21 @@ export default function DiceGamePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-green-100 px-4 text-center">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-6 space-y-6">
-        <h1 className="text-3xl sm:text-4xl font-bold text-green-800">🎲 Meal Dice Game</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100 px-4">
+      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6 sm:p-8 space-y-6 text-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-green-800">🎲 Meal Dice Game</h1>
 
         <button
           onClick={rollDice}
-          className={`px-6 py-3 bg-green-600 hover:bg-green-700 text-white text-lg font-semibold rounded-xl shadow-md transition-all ${rolling ? "animate-pulse" : ""}`}
+          className={`w-full py-3 bg-green-600 hover:bg-green-700 text-white text-lg font-semibold rounded-xl transition-all duration-300 ${
+            rolling ? "animate-pulse" : ""
+          }`}
         >
           {rolling ? "Rolling..." : "Roll the Dice"}
         </button>
 
         {selectedMeal && (
-          <div className="mt-4 p-4 bg-green-100 rounded-xl text-green-900 shadow transition-transform duration-300 hover:scale-105">
+          <div className="p-5 bg-green-100 border border-green-300 rounded-xl text-green-900 shadow-md transition-transform duration-300 hover:scale-105">
             <h2 className="text-xl font-semibold">Suggested Meal:</h2>
             <p className="mt-2 font-medium">{selectedMeal}</p>
             <p className="text-sm italic mt-2">{quote}</p>

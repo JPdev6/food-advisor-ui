@@ -33,9 +33,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-green-50 px-4">
-      <div className="w-full max-w-sm bg-white p-6 rounded-xl shadow-lg space-y-6">
-        <h2 className="text-3xl font-bold text-center text-green-700">Register</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50 to-green-100 px-4">
+      <div className="w-full max-w-md bg-white p-6 sm:p-8 rounded-2xl shadow-xl space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-green-700">Register</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
