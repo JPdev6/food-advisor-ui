@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends , Request
 from sqlalchemy.orm import Session
 from backend.db import SessionLocal
 from backend.models import Meal
@@ -42,3 +42,19 @@ async def suggest_meal(db: Session = Depends(get_db)):
     }
 
     return { "meal": chosen, "fact": facts.get(chosen, "Eat well.") }
+@router.post("/register")
+async def register(request: Request):
+    data = await request.json()
+    username = data.get("username")
+    email = data.get("email")
+    password = data.get("password")
+    # Save to DB here...
+    return {"message": "User registered"}
+
+@router.post("/login")
+async def login(request: Request):
+    data = await request.json()
+    username = data.get("username")
+    password = data.get("password")
+    # Validate credentials here...
+    return {"message": "Login successful"}
