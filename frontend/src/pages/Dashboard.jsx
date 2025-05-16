@@ -97,15 +97,16 @@ export default function Dashboard() {
 
           <h3 className="text-lg font-semibold text-gray-700">🍴 Recent Meals</h3>
           <ul className="bg-gray-100 mt-2 p-4 rounded-lg divide-y divide-gray-200 max-h-64 overflow-y-auto">
-            {meals
-              .filter((m) => m.meal.toLowerCase().includes(search.toLowerCase()))
-              .map((m, i) => (
-                <li key={i} className="py-2 flex justify-between items-center">
-                  <span className="text-gray-800">🍽️ {m.meal}</span>
-                  <span className="text-xs text-gray-500">
-                    {new Date(m.created_at).toLocaleDateString()}
-                  </span>
-                </li>
+            {Array.isArray(meals) &&
+              meals
+                  .filter((m) => m.meal.toLowerCase().includes(search.toLowerCase()))
+                  .map((m, i) => (
+                    <li key={i} className="py-2 flex justify-between items-center">
+                      <span className="text-gray-800">🍽️ {m.meal}</span>
+                      <span className="text-xs text-gray-500">
+                        {new Date(m.created_at).toLocaleDateString()}
+                      </span>
+                    </li>
               ))}
           </ul>
         </div>
